@@ -2,20 +2,18 @@ using namespace std;
 class Array{
 public:
     int arr[1000];
-    int n=0, iCurrentNode=0;
+    int n=0;
     string str[1000];
-    int sn=0, sCurrentNode=0;
+    int sn=0;
 public:
     void iPush(int value){
-        arr[iCurrentNode]=value;
+        arr[n]=value;
         n++;
-        iCurrentNode++;
     }
 
     void sPush(string value){
-        str[sCurrentNode]=value;
+        str[sn]=value;
         sn++;
-        sCurrentNode++;
     }
 
     int iGetSize(){
@@ -27,6 +25,11 @@ public:
     }
 
     void xinsert(int item){
+        if(n==0){
+            arr[0]=item;
+            n++;
+            return;
+        }
         int loc=n;
         for(int i=0; i<n; i++){
             if(item>arr[i]) continue;
@@ -66,6 +69,11 @@ public:
     }
 
     void xinsert(string item){
+        if(sn==0){
+            str[0]=item;
+            sn++;
+            return;
+        }
         int loc=sn;
         for(int i=0; i<sn; i++){
             if(item>str[i]) continue;

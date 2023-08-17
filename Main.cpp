@@ -5,15 +5,19 @@
 using namespace std;
 
 int main(){
-    Array obj;
-    obj.iPush(3);
-    obj.iPush(1);
-    obj.iPush(2);
-    obj.sPush("abc");
-    obj.sPush("eac");
-    obj.sPush("cac");
+    Array v, a;
+    v.iPush(12);
+    v.iPush(13);
+    v.iPush(10);
+    v.iPush(9);
 
+    //v elements
+    for(int i=0; i<v.iGetSize(); i++) cout<<v.arr[i]<<'\n';
 
-    for(int i=0; i<obj.sGetSize(); i++) cout<<obj.str[i]<<' ';
+    for(int i=0; i<v.iGetSize(); i++){
+        a.xinsert(v.arr[i]);
+    }
 
+    //a elements
+    for(int i=0; i<a.iGetSize(); i++) cout<<a.arr[i]<<'\n';
 }
