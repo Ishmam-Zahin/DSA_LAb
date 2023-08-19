@@ -2,54 +2,10 @@
 #include"LinkList.h"
 #include"Array.h"
 #include"Stack.h"
+#include"Queue.h"
 
 using namespace std;
 
-int operatorValue(string str){
-    if(str=="^") return 3;
-    else if(str=="*" || str=="/") return 2;
-    else return 1;
-}
-
 int main(){
-    string expression="12+4-3*(4/2+(2^2-3))+10";
-    string postfix="";
-    Stack obj;
-    int x=0;
-    for(int i=0; i<expression.size(); i++){
-        if((expression[i]>='0' && expression[i]<='9')){
-            postfix=postfix+expression[i];
-        }
-        else{
-            if(expression[i]!='(' && expression[i]!=')') postfix+=",";
-            string str;
-            str+=expression[i];
-            if(obj.sGetSize()==0){
-                obj.sPush(str);
-            }
-            else if(str==")"){
-                while(obj.sTopF()!="("){
-                    postfix+=","+obj.sPop();
-                }
-                obj.sPop();
-            }
-            else{
-                if(str=="("){
-                    obj.sPush(str);
-                    continue;
-                }
-                if(operatorValue(str)<=operatorValue(obj.sTopF())){
-                    postfix+=obj.sPop()+",";
-                    obj.sPush(str);
-                }
-                else{
-                    obj.sPush(str);
-                }
-            }
-        }
-    }
-    while(obj.sGetSize()>0){
-        postfix+=","+obj.sPop();
-    }
-    cout<<postfix<<'\n';
+
 }
